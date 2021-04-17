@@ -1,3 +1,5 @@
+'use strict';
+
 const chalk = require(`chalk`);
 const http = require(`http`);
 const fs = require(`fs`).promises;
@@ -36,7 +38,7 @@ const onClientConnect = async (req, res) => {
         const fileContent = await fs.readFile(FILENAME);
         const mocks = JSON.parse(fileContent);
         const message = mocks.map((item) => `<li>${item.title}</li>`).join(``);
-        sendResponse(res, HttpCode.OK, `<ul>${message}</ul>`)
+        sendResponse(res, HttpCode.OK, `<ul>${message}</ul>`);
       } catch (err) {
         sendResponse(res, HttpCode.NOT_FOUND, notFoundMessageText);
       }
@@ -63,4 +65,4 @@ module.exports = {
         return console.info(chalk.green(`Ожидаю соединений на ${port}`));
       });
   }
-}
+};
