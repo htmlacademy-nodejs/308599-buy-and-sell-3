@@ -1,0 +1,10 @@
+extends ../layouts/main
+include ../utils/mixins
+
+block content
+  section.comments
+    .comments__wrapper
+      h1.visually-hidden Страница комментариев
+      +commentsBlock([{}, {}, {}])
+      +commentsBlock([{}, {}, {}, {}, {}])
+

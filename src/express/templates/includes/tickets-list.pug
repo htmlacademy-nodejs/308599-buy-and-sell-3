@@ -1,0 +1,13 @@
+h2.visually-hidden= data.title
+.tickets-list__wrapper
+  .tickets-list__header
+    p.tickets-list__title= data.title
+      if (data.count)
+        | &nbsp;
+        b.js-qty= data.count
+    if (data.linkText)
+      a(href= data.linkHref).tickets-list__link= data.linkText
+  ul
+    each item in data.tickets
+      li.tickets-list__item
+        include ./ticket

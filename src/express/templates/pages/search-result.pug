@@ -1,0 +1,104 @@
+extends ../layouts/main
+include ../utils/mixins
+
+block content
+  -
+    let tickets = [
+      {
+        href: '#',
+        src: 'img/item01.jpg',
+        srcset: 'img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      },
+      {
+        href: '#',
+        src: 'img/item02.jpg',
+        srcset: 'img/item02@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Продам',
+        title: 'Мое старое кресло',
+        desc: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...',
+        price: 4000,
+        color: '02'
+      },
+      {
+        href: '#',
+        src: 'img/item03.jpg',
+        srcset: 'img/item03@2x.jpg 2x',
+        category: 'Электроника, дом',
+        label: 'Продам',
+        title: 'Дедушкины часы',
+        desc: 'Продаю дедушкины часы в прекрасном состоянии, ходят',
+        price: 45000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: 'img/item04.jpg',
+        srcset: 'img/item04@2x.jpg 2x',
+        category: 'дом',
+        label: 'Продам',
+        title: 'Кофеварка',
+        desc: 'Куплю вот такую итальянскую кофеварку, можно любой фирмы...',
+        price: 2000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: '/img/item01.jpg',
+        srcset: '/img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      }
+    ]
+
+    let searchTickets = [
+      {
+        href: '#',
+        src: 'img/item04.jpg',
+        srcset: 'img/item04@2x.jpg 2x',
+        category: 'дом',
+        label: 'Продам',
+        title: 'Кофеварка',
+        desc: 'Куплю вот такую итальянскую кофеварку, можно любой фирмы...',
+        price: 2000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: '/img/item01.jpg',
+        srcset: '/img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      }
+    ]
+
+  section.search-results
+    h1.visually-hidden Результаты поиска
+    .search-results__wrapper
+      p.search-results__label
+        | Найдено
+        span.js-results 2 публикации
+        +searchResult({
+          tickets: searchTickets
+        })
+  .tickets-list
+    +tickets({
+      title: 'Самые обсужаемые',
+      linkHref: '#',
+      linkText: 'Еще 25',
+      tickets
+    })

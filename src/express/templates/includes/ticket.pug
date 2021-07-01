@@ -1,0 +1,18 @@
+div(class="ticket-card ticket-card--color" + item.color)
+  .ticket-card__img
+    img(src= item.src srcset= item.srcset alt='Изображение товара #{item.title}')
+  .ticket-card__info
+    span.ticket-card__label= item.label
+    .ticket-card__categories
+      a(href= item.href)= item.category
+    .ticket-card__header
+      h3.ticket-card__title
+        a(href='#')= item.title
+      p.ticket-card__price
+        span.js-sum= item.price
+        |  ₽
+    if (!data.isDeleted)
+      .ticket-card__desc
+        p= item.desc
+  if (data.isDeleted)
+    button.ticket-card__del.js-delete(type='button') Удалить

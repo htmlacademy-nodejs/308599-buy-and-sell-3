@@ -1,0 +1,61 @@
+mixin tickets(data)
+  include ../includes/tickets-list
+
+mixin searchResult(data)
+  include ../includes/search-results
+
+mixin categoriesList(data)
+  include ../includes/categories/categories-list
+
+mixin avatar(data)
+  include ../includes/avatar
+
+mixin switch(data)
+  include ../includes/switch
+
+mixin tags(data)
+  each item in data
+    li
+      include ../includes/categories/category-tag
+
+mixin pagination(wrapClass)
+  div(class= wrapClass)
+    include ../includes/pagination
+
+mixin comments(comments)
+  ul.comments-list
+    each item in comments
+      li.js-card
+        include ../includes/comments/comment-card
+
+mixin commentsBlock(comments)
+  .comments__block
+    .comments__header
+      include ../includes/comments/announce-card
+    +comments(comments)
+
+mixin errorDescription(data)
+  h1.error__title= data.title
+  h2.error__subtitle= data.subtitle
+
+mixin input(data)
+  div(class="form__field" + " " + data.extraClass)
+    input(class="js-field" type= data.type name= data.name id= data.id required=data.isRequired value=data.value)
+    label(for= data.id)= data.labelText
+    if (data.isError)
+      span= data.errorText
+
+mixin textarea(data)
+  .form__field
+    textarea(name= data.name id= data.id cols= data.cols rows= data.rows maxlength= data.max minlength= data.min).js-field= data.value
+    label(for= data.id)= data.labelText
+    if (data.isError)
+      span= data.errorText
+
+mixin selector(data)
+  select.form__select.js-multiple-select(name= data.name id= data.id data-label= data.label)
+    each item in data.items
+      option(value= item.value, selected= item.selected ? '' : null)= item.title
+
+
+

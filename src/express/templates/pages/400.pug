@@ -1,0 +1,15 @@
+extends ../layouts/error
+include ../utils/mixins
+
+block variables
+  - var htmlClass = 'html-not-found'
+  - var bodyClass = 'body-not-found'
+
+block content
+  -
+    let
+      error = {
+        title: '404',
+        subtitle: 'Страница не найдена'
+      }
+  +errorDescription(error)

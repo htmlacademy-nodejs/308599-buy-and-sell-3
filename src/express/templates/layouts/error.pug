@@ -1,0 +1,36 @@
+block variables
+
+doctype html
+html(lang='ru' class= htmlClass)
+  head
+    meta(charset='UTF-8')
+    meta(name='description' content='Доска объявлений — современный веб-сайт, упрощающий продажу или покупку абсолютно любых вещей.')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+    title= 'Куплю. Продам'
+    link(rel='stylesheet' href='/css/style.min.css')
+  body(class= bodyClass)
+    noscript
+      style.
+        .center {
+          padding: 10px;
+          text-align: center;
+          background-color: #1851c2;
+          color: #fff;
+          position: relative;
+          z-index: 200;
+        }
+      p.center
+        | Ваш браузер не поддерживает javaScript. Сайт может отображаться некорректно.
+    main
+      section.error
+        block content
+        include ../includes/error/error-list
+        form.error__search.search.search--small(method='get' action='#' autocomplete='off')
+          input(type='search' name='search' placeholder='Поиск' aria-label='Поиск')
+          .search__icon
+          .search__close-btn
+        a.error__logo.logo(href='main.html')
+          img(src='img/logo.svg' width='179' height='34' alt='Логотип Куплю Продам')
+    script(src='/js/vendor.js')
+    script(src='/js/main.js')
