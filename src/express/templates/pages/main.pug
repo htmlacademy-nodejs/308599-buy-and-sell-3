@@ -1,0 +1,205 @@
+extends ../layouts/main
+include ../utils/mixins
+
+block content
+  -
+    let tiles = [
+      {
+        href: '#',
+        name: 'Дом',
+        src: 'img/cat.jpg',
+        srcset: 'img/cat@2x.jpg 2x',
+        qty: 81,
+        isActive: false,
+      },
+      {
+        href: '#',
+        name: 'Электроника',
+        src: 'img/cat02.jpg',
+        srcset: 'img/cat02@2x.jpg 2x',
+        qty: 62,
+        isActive: false,
+      },
+      {
+        href: '#',
+        name: 'Одежда',
+        src: 'img/cat03.jpg',
+        srcset: 'img/cat03@2x.jpg 2x',
+        qty: 106,
+        isActive: false,
+      },
+      {
+        href: '#',
+        name: 'Спорт/отдых',
+        src: 'img/cat04.jpg',
+        srcset: 'img/cat04@2x.jpg 2x',
+        qty: 86,
+        isActive: false,
+      },
+      {
+        href: '#',
+        name: 'Авто',
+        src: 'img/cat05.jpg',
+        srcset: 'img/cat05@2x.jpg 2x',
+        qty: 34,
+        isActive: false,
+      },
+      {
+        href: '#',
+        name: 'Книги',
+        src: 'img/cat06.jpg',
+        srcset: 'img/cat06@2x.jpg 2x',
+        qty: 34,
+        isActive: false,
+      }
+    ]
+
+    let tickets = [
+      {
+        href: '#',
+        src: 'img/item01.jpg',
+        srcset: 'img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      },
+      {
+        href: '#',
+        src: 'img/item02.jpg',
+        srcset: 'img/item02@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Продам',
+        title: 'Мое старое кресло',
+        desc: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...',
+        price: 4000,
+        color: '02'
+      },
+      {
+        href: '#',
+        src: 'img/item03.jpg',
+        srcset: 'img/item03@2x.jpg 2x',
+        category: 'Электроника, дом',
+        label: 'Продам',
+        title: 'Дедушкины часы',
+        desc: 'Продаю дедушкины часы в прекрасном состоянии, ходят',
+        price: 45000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: 'img/item04.jpg',
+        srcset: 'img/item04@2x.jpg 2x',
+        category: 'дом',
+        label: 'Продам',
+        title: 'Кофеварка',
+        desc: 'Куплю вот такую итальянскую кофеварку, можно любой фирмы...',
+        price: 2000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: '/img/item01.jpg',
+        srcset: '/img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      },
+      {
+        href: '#',
+        src: '/img/item02.jpg',
+        srcset: '/img/item02@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Продам',
+        title: 'Мое старое кресло',
+        desc: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...',
+        price: 4000,
+        color: '02'
+      },
+      {
+        href: '#',
+        src: '/img/item03.jpg',
+        srcset: '/img/item03@2x.jpg 2x',
+        category: 'Электроника, дом',
+        label: 'Продам',
+        title: 'Дедушкины часы',
+        desc: 'Продаю дедушкины часы в прекрасном состоянии, ходят',
+        price: 45000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: '/img/item04.jpg',
+        srcset: '/img/item04@2x.jpg 2x',
+        category: 'дом',
+        label: 'Продам',
+        title: 'Кофеварка',
+        desc: 'Куплю вот такую итальянскую кофеварку, можно любой фирмы...',
+        price: 2000,
+        color: '03'
+      }
+    ]
+
+    let ticketsDiscuss = [
+      {
+        href: '#',
+        src: 'img/item02.jpg',
+        srcset: 'img/item02@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Продам',
+        title: 'Мое старое кресло',
+        desc: 'Продам свое старое кресло, чтобы сидеть и читать книги зимними...',
+        price: 4000,
+        color: '02'
+      },
+      {
+        href: '#',
+        src: 'img/item04.jpg',
+        srcset: 'img/item04@2x.jpg 2x',
+        category: 'дом',
+        label: 'Продам',
+        title: 'Кофеварка',
+        desc: 'Куплю вот такую итальянскую кофеварку, можно любой фирмы...',
+        price: 2000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: 'img/item03.jpg',
+        srcset: 'img/item03@2x.jpg 2x',
+        category: 'Электроника, дом',
+        label: 'Продам',
+        title: 'Дедушкины часы',
+        desc: 'Продаю дедушкины часы в прекрасном состоянии, ходят',
+        price: 45000,
+        color: '03'
+      },
+      {
+        href: '#',
+        src: 'img/item01.jpg',
+        srcset: 'img/item01@2x.jpg 2x',
+        category: 'Дом',
+        label: 'Куплю',
+        title: 'Монстера',
+        desc: 'Куплю монстеру зеленую в хорошем зеленом состоянии, буду поливать...',
+        price: 1000,
+        color: '01'
+      }
+    ]
+
+  +categoriesList(tiles)
+  section.tickets-list
+    +tickets({
+      title: 'Самое свежее',
+      tickets
+    })
+  section.tickets-list
+    +tickets({
+      title: 'Самые обсужаемые',
+      tickets: ticketsDiscuss
+    })

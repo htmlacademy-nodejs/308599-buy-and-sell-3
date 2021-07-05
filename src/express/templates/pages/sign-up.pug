@@ -1,0 +1,57 @@
+extends ../layouts/main
+include ../utils/mixins
+
+block content
+  section.sign-up
+    form.sign-up__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
+      .sign-up__title
+        h2 Регистрация
+        a.sign-up__link(href='login.html') Вход
+      .sign-up__avatar-container.js-preview-container
+        .sign-up__avatar.js-preview
+        .sign-up__field-avatar
+          input#avatar.visually-hidden.js-file-field(type='file' name='avatar')
+          label(for='avatar')
+            span.sign-up__text-upload Загрузить аватар…
+            span.sign-up__text-another Загрузить другой аватар…
+      +input({
+        extraClass: 'sign-up__field',
+        type: 'text',
+        id: 'user-name',
+        name: 'user-name',
+        isRequired: true,
+        labelText: 'Имя и фамилия',
+        isError: false,
+        errorText: ''
+      })
+      +input({
+        extraClass: 'sign-up__field',
+        type: 'text',
+        id: 'user-email',
+        name: 'user-email',
+        isRequired: true,
+        labelText: 'Эл. почта',
+        isError: false,
+        errorText: ''
+      })
+      +input({
+        extraClass: 'sign-up__field',
+        type: 'password',
+        id: 'user-password',
+        name: 'user-password',
+        isRequired: true,
+        labelText: 'Пароль',
+        isError: false,
+        errorText: ''
+      })
+      +input({
+        extraClass: 'sign-up__field',
+        type: 'password',
+        id: 'user-password-again',
+        name: 'user-password-again',
+        isRequired: true,
+        labelText: 'Пароль еще раз',
+        isError: false,
+        errorText: ''
+      })
+      button.sign-up__button.btn.btn--medium.js-button(type='submit' disabled='') Создать аккаунт

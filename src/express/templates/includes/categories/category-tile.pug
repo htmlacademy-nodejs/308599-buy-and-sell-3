@@ -1,0 +1,6 @@
+a(href= item.href).category-tile.collapse(class= item.isActive && 'category-tile--active')
+  span.category-tile__image
+    img(src= item.src srcset= item.srcset alt='Иконка категории #{item.name}')
+  span.category-tile__label
+    | #{item.name} &nbsp;
+    span.category-tile__qty.js-qty= item.qty

@@ -1,0 +1,9 @@
+div(class= data.src ? 'uploaded' : null).ticket-form__avatar-container.js-preview-container
+  .ticket-form__avatar.js-preview
+    if (data.src)
+      img(src= data.src srcset= data.src2x + ' 2x')
+  .ticket-form__field-avatar
+    input#avatar.visually-hidden.js-file-field(type='file' name='avatar')
+    label(for='avatar')
+      span.ticket-form__text-upload Загрузить фото…
+      span.ticket-form__text-another Загрузить другое фото…

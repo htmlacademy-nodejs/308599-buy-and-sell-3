@@ -1,0 +1,15 @@
+extends ../layouts/error
+include ../utils/mixins
+
+block variables
+  - var htmlClass = 'html-server'
+  - var bodyClass = 'body-server'
+
+block content
+  -
+    let
+        error = {
+          title: '500',
+          subtitle: 'Ошибка cервера'
+        }
+  +errorDescription(error)

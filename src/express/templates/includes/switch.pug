@@ -1,0 +1,7 @@
+.form__switch.switch
+  .switch__item
+    input#buy-field.visually-hidden(type='radio' name='action' value='buy' checked= data.check === 1 ? '' : null)
+    label.switch__button(for='buy-field') Куплю
+  .switch__item
+    input#sell-field.visually-hidden(type='radio' name='action' value='sell' checked= data.check === 2 ? '' : null)
+    label.switch__button(for='sell-field') Продам

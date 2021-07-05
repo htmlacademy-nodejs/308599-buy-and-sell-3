@@ -1,0 +1,50 @@
+extends ../layouts/main
+include ../utils/mixins
+
+block content
+  section.ticket-form
+    .ticket-form__wrapper
+      h1.ticket-form__title Новая публикация
+      .ticket-form__tile
+        form.ticket-form__form.form(action='#' method='post' enctype='multipart/form-data' autocomplete='off')
+          +avatar({src: '', src2x: ''})
+          .ticket-form__content
+            .ticket-form__row
+              +input({
+                extraClass: 'form__field--fill',
+                value: '',
+                type: 'text',
+                name: 'ticket-name',
+                id: 'ticket-name',
+                isRequired: true
+              })
+            .ticket-form__row
+              +textarea({
+                name: 'comment',
+                id: 'comment-field',
+                cols: 30,
+                rows: 10,
+                max: 400,
+                min: 50,
+                value: ''
+              })
+            .ticket-form__row
+              +selector({
+                id: 'category-field',
+                name: 'category',
+                label: 'Выбрать категорию публикации',
+                items: [{value: 1, title: 'Дом', selected: false}, {value: 2, title: 'Спорт и отдых', selected: false}]
+              })
+            .ticket-form__row
+              +input({
+                extraClass: 'form__field--price',
+                value: 'Мое старое кресло',
+                type: 'number',
+                name: 'price',
+                id: 'price-field',
+                isRequired: true,
+                min: 1,
+                labelText: 'Цена'
+              })
+              +switch({check: 0})
+        button.form__button.btn.btn--medium.js-button(type='submit' disabled='disabled') Опубликовать

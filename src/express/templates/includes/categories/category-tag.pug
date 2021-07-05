@@ -1,0 +1,5 @@
+a(href= item.href).category-tile.category-tile--small
+  span.category-tile__image
+    img(src= item.src srcset= item.srcset alt='Иконка категории #{item.name}')
+  span.category-tile__label
+    | #{item.name}

@@ -35,7 +35,7 @@ const readContent = async (filePath) => {
     return content.trim().split(`\n`);
   } catch (err) {
     console.error(chalk.red(err));
-    return [];
+    throw new Error(err);
   }
 };
 
@@ -52,6 +52,11 @@ const generateOffers = (count, {titles = [], sentences = [], categories = []}) =
   }))
 );
 
+const writeToJsonFile = async (fileName, content) => {
+  await fs.writeFile(fileName, JSON.stringify(content));
+  console.log(chalk.green(`Operation success. File created.`));
+};
+
 module.exports = {
   name: `--generate`,
   async run(args) {
@@ -62,13 +67,13 @@ module.exports = {
     const categories = await readContent(FILE_CATEGORIES_PATH);
 
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    const content = JSON.stringify(generateOffers(countOffer, {titles, sentences, categories}));
+    const content = generateOffers(countOffer, {titles, sentences, categories});
 
     try {
-      await fs.writeFile(FILE_NAME, content);
-      console.log(chalk.green(`Operation success. File created.`));
+      await writeToJsonFile(FILE_NAME, content);
     } catch (err) {
       console.error(chalk.red(`Can't write data to file...`));
+      throw new Error(err);
     }
 
   }
