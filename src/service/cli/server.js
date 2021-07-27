@@ -4,6 +4,7 @@ const chalk = require(`chalk`);
 const express = require(`express`);
 const fs = require(`fs`).promises;
 const {HttpCode} = require(`../../constants`);
+require(`express-async-errors`);
 
 
 const DEFAULT_PORT = 3000;
@@ -13,18 +14,19 @@ const app = express();
 app.use(express.json());
 
 app.get(`/offers`, async (req, res) => {
-  try {
-    const fileContent = await fs.readFile(FILENAME);
-    const mocks = JSON.parse(fileContent);
-    res.json(mocks);
-  } catch (err) {
-    res.status(HttpCode.INTERNAL_SERVER_ERROR).send(err);
-  }
+  const fileContent = await fs.readFile(FILENAME);
+  const mocks = JSON.parse(fileContent);
+  res.json(mocks);
 });
 
 app.use((req, res) => res
   .status(HttpCode.NOT_FOUND)
   .send(`Not found`));
+
+app.use((err, req, res, next) => {
+  res.status(HttpCode.INTERNAL_SERVER_ERROR);
+  next(err);
+});
 
 module.exports = {
   name: `--server`,
